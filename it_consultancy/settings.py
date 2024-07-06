@@ -1,5 +1,6 @@
 import os
 from pathlib import Path
+from .distill_settings import *
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -23,7 +24,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'home',  # Add your app here
+    'home', 
+     'django_distill', # Add your app here
 ]
 
 MIDDLEWARE = [
@@ -105,3 +107,13 @@ STATICFILES_DIRS = [
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Email settings
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.your-email-provider.com'  # Your email provider's SMTP server
+EMAIL_PORT = 587  # Usually 587 for TLS
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'your-email@example.com'  # Your email address
+EMAIL_HOST_PASSWORD = 'your-email-password'  # Your email password
+
+DEFAULT_CONTACT_EMAIL = 'contact@example.com'  # Recipient email address
